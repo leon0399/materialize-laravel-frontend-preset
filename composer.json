@@ -1,0 +1,14 @@
+{
+    "name": "leon0399/materialize-laravel-frontend-preset",
+    "description": "Laravel frontend preset for Materialize",
+    "keywords": ["laravel", "preset", "materialize"],
+    "license": "MIT",
+    "require": {
+        "laravel/framework": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelFrontendPresets\\MaterializePreset\\": "src/"
+        }
+    }
+}
