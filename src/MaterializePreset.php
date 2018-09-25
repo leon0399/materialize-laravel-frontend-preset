@@ -9,6 +9,12 @@ use Illuminate\Support\Arr;
 
 class MaterializePreset extends Preset
 {
+
+    /**
+     * Install the preset.
+     *
+     * @return void
+     */
     public static function install()
     {
         static::updatePackages();
@@ -18,12 +24,23 @@ class MaterializePreset extends Preset
         static::removeNodeModules();
     }
 
+    /**
+     * Install the preset with Authentication.
+     *
+     * @return void
+     */
     public static function installAuth()
     {
         static::install();
         static::scaffoldAuth();
     }
 
+    /**
+     * Update the given package array.
+     *
+     * @param  array  $packages
+     * @return array
+     */
     protected static function updatePackageArray(array $packages)
     {
         return array_merge([
@@ -51,6 +68,11 @@ class MaterializePreset extends Preset
         });
     }
 
+    /**
+     * Update the bootstrapping files.
+     *
+     * @return void
+     */
     protected static function updateBootstrapping()
     {
 
