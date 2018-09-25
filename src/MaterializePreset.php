@@ -2,23 +2,30 @@
 
 namespace LaravelFrontendPresets\MaterializePreset;
 
-use Illuminate\Support\Arr;
+use Illuminate\Container\Container;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Console\Presets\Preset;
+use Illuminate\Support\Arr;
 
-class MaterializePreset extends Preset {
-    public static function install() {
+class MaterializePreset extends Preset
+{
+    public static function install()
+    {
         static::updatePackages();
         static::updateStyles();
         static::updateBootstrapping();
         static::updateWelcomePage();
         static::removeNodeModules();
     }
-    public static function installAuth() {
+
+    public static function installAuth()
+    {
         static::install();
         static::scaffoldAuth();
     }
 
-    protected static function updatePackageArray(array $packages) {
+    protected static function updatePackageArray(array $packages)
+    {
         return array_merge([
             'laravel-mix' => '^2.1',
             'laravel-mix-purgecss' => '^2.2',
@@ -31,23 +38,46 @@ class MaterializePreset extends Preset {
         ]));
     }
 
-    protected static function updateStyles() {
+    protected static function updateStyles()
+    {
+        tap(new Filesystem, function (Filesystem $filesystem) {
+            $filesystem->deleteDirectory(resource_path('sass'));
+            $filesystem->delete(public_path('js/app.js'));
+            $filesystem->delete(public_path('css/app.css'));
+
+            if (!$filesystem->isDirectory($directory = resource_path('css'))) {
+                $filesystem->makeDirectory($directory, 0755, true);
+            }
+        });
+    }
+
+    protected static function updateBootstrapping()
+    {
 
     }
 
-    protected static function updateBootstrapping() {
-
+    protected static function updateWelcomePage()
+    {
+        (new Filesystem)->delete(resource_path('views/welcome.blade.php'));
     }
 
-    protected static function updateWelcomePage() {
+    protected static function scaffoldAuth()
+    {
+        file_put_contents(app_path('Http/Controllers/HomeController.php'), static::compileControllerStub());
 
+        file_put_contents(
+            base_path('routes/web.php'),
+            "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
+            FILE_APPEND
+        );
     }
 
-    protected static function scaffoldAuth() {
-
-    }
-
-    protected static function compileControllerStub() {
-        
+    protected static function compileControllerStub()
+    {
+        return str_replace(
+            '{{namespace}}',
+            Container::getInstance()->getNamespace(),
+            file_get_contents(__DIR__ . '/materialize-stubs/controllers/HomeController.stub')
+        );
     }
 }
