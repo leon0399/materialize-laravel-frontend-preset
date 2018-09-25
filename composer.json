@@ -10,5 +10,12 @@
         "psr-4": {
             "LaravelFrontendPresets\\MaterializePreset\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelFrontendPresets\\MaterializePreset\\MaterializePresetServiceProvider"
+            ]
+        }
     }
 }

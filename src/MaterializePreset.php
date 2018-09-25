@@ -1,4 +1,5 @@
 <?php
+
 namespace LaravelFrontendPresets\MaterializePreset;
 
 use Illuminate\Support\Arr;
