@@ -78,7 +78,7 @@ class MaterializePreset extends Preset
      */
     protected static function updateBootstrapping()
     {
-
+        copy(__DIR__.'/tailwindcss-stubs/resources/js/bootstrap.js', resource_path('js/bootstrap.js'));
     }
 
     protected static function updateWelcomePage()
