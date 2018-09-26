@@ -62,13 +62,13 @@ class MaterializePreset extends Preset
             $filesystem->delete(public_path('js/app.js'));
             $filesystem->delete(public_path('css/app.css'));
 
-            if (!$filesystem->isDirectory($directory = resource_path('css'))) {
+            if (!$filesystem->isDirectory($directory = resource_path('sass'))) {
                 $filesystem->makeDirectory($directory, 0755, true);
             }
         });
 
-        copy(__DIR__ . '/materialize-stubs/resources/css/_variables.scss', resource_path('css/_variables.scss'));
-        copy(__DIR__ . '/materialize-stubs/resources/css/app.scss', resource_path('css/app.scss'));
+        copy(__DIR__ . '/materialize-stubs/resources/sass/_variables.scss', resource_path('sass/_variables.scss'));
+        copy(__DIR__ . '/materialize-stubs/resources/sass/app.scss', resource_path('sass/app.scss'));
     }
 
     /**
