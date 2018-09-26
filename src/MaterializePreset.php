@@ -66,6 +66,9 @@ class MaterializePreset extends Preset
                 $filesystem->makeDirectory($directory, 0755, true);
             }
         });
+
+        copy(__DIR__ . '/materialize-stubs/resources/css/_variables.scss', resource_path('css/_variables.scss'));
+        copy(__DIR__ . '/materialize-stubs/resources/css/app.scss', resource_path('css/app.scss'));
     }
 
     /**
