@@ -1,6 +1,9 @@
 # Laravel Frontend preset for Materialize
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
+[![Total Downloads](https://poser.pugx.org/leon0399/materialize-laravel-frontend-preset/downloads)](https://packagist.org/packages/leon0399/materialize-laravel-frontend-preset)
+[![Latest Stable Version](https://poser.pugx.org/leon0399/materialize-laravel-frontend-preset/v/stable)](https://packagist.org/packages/leon0399/materialize-laravel-frontend-preset)
+[![Latest Unstable Version](https://poser.pugx.org/leon0399/materialize-laravel-frontend-preset/v/unstable)](https://packagist.org/packages/leon0399/materialize-laravel-frontend-preset)
+[![License](https://poser.pugx.org/leon0399/materialize-laravel-frontend-preset/license)](https://packagist.org/packages/leon0399/materialize-laravel-frontend-preset)
 
 ## Usage
 
@@ -16,7 +19,7 @@
 
     MIT License
 
-    Copyright (c) 2018 Huttka Labs
+    Copyright (c) 2018 Leonid Meleshin
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
