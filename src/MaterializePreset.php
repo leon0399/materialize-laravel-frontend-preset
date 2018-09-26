@@ -95,6 +95,8 @@ class MaterializePreset extends Preset
             "Auth::routes();\n\nRoute::get('/home', 'HomeController@index')->name('home');\n\n",
             FILE_APPEND
         );
+
+        (new Filesystem)->copyDirectory(__DIR__.'/tailwindcss-stubs/resources/views', resource_path('views'));
     }
 
     protected static function compileControllerStub()
