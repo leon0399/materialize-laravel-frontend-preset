@@ -4,7 +4,8 @@
     "keywords": ["laravel", "preset", "materialize"],
     "license": "MIT",
     "require": {
-        "laravel/framework": "^5.5"
+        "laravel/framework": "^5.5",
+        "leon0399/materialize-laravel-frontend-preset": "dev-master"
     },
     "autoload": {
         "psr-4": {

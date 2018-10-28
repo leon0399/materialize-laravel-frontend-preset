@@ -78,7 +78,7 @@ class MaterializePreset extends Preset
      */
     protected static function updateBootstrapping()
     {
-        copy(__DIR__.'/tailwindcss-stubs/resources/js/bootstrap.js', resource_path('js/bootstrap.js'));
+        copy(__DIR__.'/materialize-stubs/resources/js/bootstrap.js', resource_path('js/bootstrap.js'));
     }
 
     protected static function updateWelcomePage()
@@ -96,7 +96,7 @@ class MaterializePreset extends Preset
             FILE_APPEND
         );
 
-        (new Filesystem)->copyDirectory(__DIR__.'/tailwindcss-stubs/resources/views', resource_path('views'));
+        (new Filesystem)->copyDirectory(__DIR__.'/materialize-stubs/resources/views', resource_path('views'));
     }
 
     protected static function compileControllerStub()
